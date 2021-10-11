@@ -2,6 +2,7 @@
 #define RENDERER_H
 
 #include <vector>
+#include "obstacle.h"
 #include "SDL.h"
 #include "snake.h"
 #include "map.h"
@@ -12,7 +13,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(Snake const snake, SDL_Point const &food, Map const &map);
+  void Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> map);
   void UpdateWindowTitle(int score, int fps);
 
  private:

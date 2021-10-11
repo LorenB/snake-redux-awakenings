@@ -1,6 +1,7 @@
-#include "game.h"
-#include <iostream>
 #include "SDL.h"
+#include <vector>
+
+#include "game.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
@@ -20,11 +21,20 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
-  // TODO: use PlaceWall 
-  map.x = 640/2;
-  map.y = 640/2;
-  map.w = 640/32;
-  map.h = (640/32)*5;
+  // TODO: use PlaceWall
+  // map.x = 640/2;
+  // map.y = 640/2;
+  // map.w = 640/32;
+  // map.h = (640/32)*5;
+
+  std::vector<Obstacle> map;
+  Obstacle obstacle1;
+  obstacle1.cell_x = 10;
+  obstacle1.cell_y = 10;
+  obstacle1.cell_width = 1;
+  obstacle1.cell_hieght = 5;
+
+  map.push_back(obstacle1);
 
   while (running) {
     frame_start = SDL_GetTicks();

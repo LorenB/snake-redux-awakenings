@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <random>
+#include <vector>
 #include "SDL.h"
 #include "controller.h"
 #include "renderer.h"
@@ -19,7 +20,7 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
-  Map map;
+  // Map map;
   // SDL_Point map;
 
   std::random_device dev;
