@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> map) {
+void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<GridObstacle> map) {
   SDL_Rect block;
   SDL_Rect rect;
   block.w = screen_width / grid_width;

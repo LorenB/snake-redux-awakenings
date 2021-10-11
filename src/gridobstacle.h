@@ -1,6 +1,6 @@
 #include <iostream>
 
-struct Obstacle {
+struct GridObstacle {
   int cell_x;
   int cell_y;
   int cell_width;

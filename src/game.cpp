@@ -27,8 +27,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   // map.w = 640/32;
   // map.h = (640/32)*5;
 
-  std::vector<Obstacle> map;
-  Obstacle obstacle1;
+  std::vector<GridObstacle> map;
+  GridObstacle obstacle1;
   obstacle1.cell_x = 10;
   obstacle1.cell_y = 10;
   obstacle1.cell_width = 1;
