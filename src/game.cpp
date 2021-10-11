@@ -19,13 +19,16 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
+  wall.x = random_w(engine);
+  wall.y = random_h(engine);
+
   while (running) {
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
+    renderer.Render(snake, food, wall);
 
     frame_end = SDL_GetTicks();
 
