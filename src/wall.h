@@ -6,10 +6,10 @@
 // TODO: class or struct?
 
 class Wall {
-    public:
-        int x;
-        int y;
-        // int w;
-        // int h;
+  public:
+    int x;
+    int y;
+    int w;
+    int h;
 };
 #endif
