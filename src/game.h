@@ -6,7 +6,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
-#include "wall.h"
+#include "map.h"
 
 class Game {
  public:
@@ -19,8 +19,8 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
-  Wall wall;
-  // SDL_Point wall;
+  Map map;
+  // SDL_Point map;
 
   std::random_device dev;
   std::mt19937 engine;
@@ -30,7 +30,7 @@ class Game {
   int score{0};
 
   void PlaceFood();
-  void PlaceWall(std::size_t grid_width, std::size_t grid_height);
+  // void PlaceWall(std::size_t grid_width, std::size_t grid_height);
   void Update();
 };
 

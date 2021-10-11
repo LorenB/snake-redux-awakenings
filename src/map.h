@@ -1,11 +1,11 @@
-#ifndef WALL_H
-#define WALL_H
+#ifndef MAP_H
+#define MAP_H
 
 #include "SDL.h"
 
 // TODO: class or struct?
 
-class Wall {
+class Map {
   public:
     int x;
     int y;
