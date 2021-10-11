@@ -8,6 +8,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
   PlaceFood();
+  // PlaceWall(grid_width, grid_height);
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -19,8 +20,10 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
-  wall.x = random_w(engine);
-  wall.y = random_h(engine);
+  wall.x = 640/2;
+  wall.y = 640/2;
+  // wall.w = 1;
+  // wall.h = 10
 
   while (running) {
     frame_start = SDL_GetTicks();
@@ -67,6 +70,13 @@ void Game::PlaceFood() {
     }
   }
 }
+
+// void PlaceWall(std::size_t grid_width, std::size_t grid_height) {
+//   wall.x = grid_width / 2;
+//   wall.y = grid_height / 2;
+//   // wall.w = 1;
+//   // wall.h = 10
+// }
 
 void Game::Update() {
   if (!snake.alive) return;
