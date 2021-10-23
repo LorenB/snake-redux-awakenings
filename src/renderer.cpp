@@ -40,7 +40,7 @@ Renderer::~Renderer() {
 
 void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<GridObstacle> map) {
   SDL_Rect block;
-  SDL_Rect rect;
+  // SDL_Rect rect;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
@@ -48,23 +48,14 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Grid
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
+  // Render map
+  RenderMap(map);
+
   // Render food
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
   block.x = food.x * block.w;
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
-
-    // Render map
-  SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF);
-  // TODO: interate over game map
-  rect.x = map[0].cell_x * 20;
-  rect.y = map[0].cell_y * 20;
-  rect.w = map[0].cell_width * 20;
-  rect.h = map[0].cell_hieght * 20;
-
-  // block.x = map.x;
-  // block.y = map.y;
-  SDL_RenderFillRect(sdl_renderer, &rect);
 
   // Render snake's body
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -86,6 +77,27 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Grid
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
+}
+
+void Renderer::RenderMap(std::vector<GridObstacle> map) {
+  SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF);
+  // TODO: interate over game map
+  SDL_Rect rect;
+  rect.x = map[0].cell_x * 20;
+  rect.y = map[0].cell_y * 20;
+  rect.w = map[0].cell_width * 20;
+  rect.h = map[0].cell_hieght * 20;
+  SDL_RenderFillRect(sdl_renderer, &rect);
+}
+
+Obstacle Renderer::GetCoordinates(GridObstacle grid_obstacle) {
+  Obstacle ret;
+  int grid_cell_w = screen_width / grid_width;
+  int grid_cell_h = screen_height / grid_height;
+  ret.x = grid_obstacle.cell_width * grid_cell_w;
+  ret.y = grid_obstacle.cell_hieght * grid_cell_h;
+  ret.w = grid_obstacle.cell_width * grid_cell_w;
+  return ret;
 }
 
 void Renderer::UpdateWindowTitle(int score, int fps) {
