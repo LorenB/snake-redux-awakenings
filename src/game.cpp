@@ -21,20 +21,21 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
-  // TODO: use PlaceWall
-  // map.x = 640/2;
-  // map.y = 640/2;
-  // map.w = 640/32;
-  // map.h = (640/32)*5;
-
   std::vector<GridObstacle> map;
   GridObstacle obstacle1;
-  obstacle1.cell_x = 10;
-  obstacle1.cell_y = 10;
+  obstacle1.cell_x = 0;
+  obstacle1.cell_y = 0;
   obstacle1.cell_width = 1;
-  obstacle1.cell_hieght = 5;
+  obstacle1.cell_hieght = 32;
+
+  GridObstacle obstacle2;
+  obstacle2.cell_x = 15;
+  obstacle2.cell_y = 15;
+  obstacle2.cell_width = 5;
+  obstacle2.cell_hieght = 1;
 
   map.push_back(obstacle1);
+  map.push_back(obstacle2);
 
   while (running) {
     frame_start = SDL_GetTicks();

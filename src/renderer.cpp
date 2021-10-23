@@ -40,7 +40,6 @@ Renderer::~Renderer() {
 
 void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<GridObstacle> map) {
   SDL_Rect block;
-  // SDL_Rect rect;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
@@ -83,11 +82,13 @@ void Renderer::RenderMap(std::vector<GridObstacle> map) {
   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF);
   // TODO: interate over game map
   SDL_Rect rect;
-  rect.x = map[0].cell_x * 20;
-  rect.y = map[0].cell_y * 20;
-  rect.w = map[0].cell_width * 20;
-  rect.h = map[0].cell_hieght * 20;
-  SDL_RenderFillRect(sdl_renderer, &rect);
+  for (auto obstacle : map) {
+    rect.x = obstacle.cell_x * 20;
+    rect.y = obstacle.cell_y * 20;
+    rect.w = obstacle.cell_width * 20;
+    rect.h = obstacle.cell_hieght * 20;
+    SDL_RenderFillRect(sdl_renderer, &rect);
+  }
 }
 
 Obstacle Renderer::GetCoordinates(GridObstacle grid_obstacle) {
