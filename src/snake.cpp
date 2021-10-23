@@ -55,22 +55,23 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
     size++;
   }
 
-  // Check if the snake has died.
+  // Check if the snake has died by running into itself
   for (auto const &item : body) {
     if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
       alive = false;
     }
   }
+
+  // check if snake has died by wall collision
   for (auto const &obstacle : _map) {
-    // TODO: check all obstacle cells for collision (not just top left)
-    int obstacle_max_cell_x = obstacle.cell_x  + obstacle.cell_width;
-    int obstacle_max_cell_y = obstacle.cell_y + obstacle.cell_hieght;
-    
-    if (current_head_cell.x == obstacle.cell_x && current_head_cell.y == obstacle.cell_y) {
-      alive = false;
+    for(int i=0; i <=  obstacle.cell_width; i++) {
+      for(int j=0; j <= obstacle.cell_hieght; j++) {
+        if (current_head_cell.x == obstacle.cell_x + i && current_head_cell.y == obstacle.cell_y + j) {
+          alive = false;
+        }
+      }
     }
   }
-  
 }
 
 void Snake::GrowBody() { growing = true; }

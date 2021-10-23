@@ -20,12 +20,23 @@ int main() {
 
   GridObstacle obstacle2;
   obstacle2.cell_x = 15;
-  obstacle2.cell_y = 15;
+  obstacle2.cell_y = 25;
   obstacle2.cell_width = 5;
   obstacle2.cell_hieght = 1;
 
   map.push_back(obstacle1);
   map.push_back(obstacle2);
+
+  // int num = 1;
+  // for (auto const &obstacle : map) {
+  //   std::cout << "obstacle #" << num << std::endl;
+  //   std::cout << "x, y, w, h: " << obstacle.cell_x * 20 << ", " << obstacle.cell_y * 20 << ", " << obstacle.cell_width * 20 << ", " << obstacle.cell_hieght * 20 << std::endl;
+  //   for(int i=0; i <  obstacle.cell_width; i++) {
+  //     for(int j=0; j < obstacle.cell_hieght; j++) {
+  //       std::cout << "cell x, y: " << obstacle.cell_x * 20  + i * 20 << ", " << obstacle.cell_y * 20 + j * 20 << std::endl; 
+  //     }
+  //   }
+  // }
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;

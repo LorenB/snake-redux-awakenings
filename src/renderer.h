@@ -2,7 +2,6 @@
 #define RENDERER_H
 
 #include <vector>
-// #include "gridobstacle.h"
 #include "obstacle.h"
 
 #include "SDL.h"
