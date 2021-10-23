@@ -2,17 +2,19 @@
 #define SNAKE_H
 
 #include <vector>
+#include<gridobstacle.h>
 #include "SDL.h"
 
 class Snake {
  public:
   enum class Direction { kUp, kDown, kLeft, kRight };
 
-  Snake(int grid_width, int grid_height)
+  Snake(int grid_width, int grid_height, std::vector<GridObstacle> map)
       : grid_width(grid_width),
         grid_height(grid_height),
         head_x(grid_width / 2),
-        head_y(grid_height / 2) {}
+        head_y(grid_height / 2),
+        _map(map) {}
 
   void Update();
 
@@ -35,6 +37,7 @@ class Snake {
   bool growing{false};
   int grid_width;
   int grid_height;
+  std::vector<GridObstacle> _map;
 };
 
 #endif

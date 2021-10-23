@@ -61,6 +61,16 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
       alive = false;
     }
   }
+  for (auto const &obstacle : _map) {
+    // TODO: check all obstacle cells for collision (not just top left)
+    int obstacle_max_cell_x = obstacle.cell_x  + obstacle.cell_width;
+    int obstacle_max_cell_y = obstacle.cell_y + obstacle.cell_hieght;
+    
+    if (current_head_cell.x == obstacle.cell_x && current_head_cell.y == obstacle.cell_y) {
+      alive = false;
+    }
+  }
+  
 }
 
 void Snake::GrowBody() { growing = true; }

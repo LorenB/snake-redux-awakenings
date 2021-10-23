@@ -11,7 +11,7 @@
 
 class Game {
  public:
-  Game(std::size_t grid_width, std::size_t grid_height);
+  Game(std::size_t grid_width, std::size_t grid_height, std::vector<GridObstacle> map);
   void Run(Controller const &controller, Renderer &renderer,
            std::size_t target_frame_duration);
   int GetScore() const;
@@ -20,6 +20,7 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
+  std::vector<GridObstacle> _map;
   // Map map;
   // SDL_Point map;
 

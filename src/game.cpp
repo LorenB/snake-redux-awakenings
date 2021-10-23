@@ -3,13 +3,13 @@
 
 #include "game.h"
 
-Game::Game(std::size_t grid_width, std::size_t grid_height)
-    : snake(grid_width, grid_height),
+Game::Game(std::size_t grid_width, std::size_t grid_height, std::vector<GridObstacle> map)
+    : snake(grid_width, grid_height, map),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
-      random_h(0, static_cast<int>(grid_height - 1)) {
+      random_h(0, static_cast<int>(grid_height - 1)),
+      _map(map) {
   PlaceFood();
-  // PlaceWall(grid_width, grid_height);
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -21,29 +21,13 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
-  std::vector<GridObstacle> map;
-  GridObstacle obstacle1;
-  obstacle1.cell_x = 0;
-  obstacle1.cell_y = 0;
-  obstacle1.cell_width = 1;
-  obstacle1.cell_hieght = 32;
-
-  GridObstacle obstacle2;
-  obstacle2.cell_x = 15;
-  obstacle2.cell_y = 15;
-  obstacle2.cell_width = 5;
-  obstacle2.cell_hieght = 1;
-
-  map.push_back(obstacle1);
-  map.push_back(obstacle2);
-
   while (running) {
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food, map);
+    renderer.Render(snake, food, _map);
 
     frame_end = SDL_GetTicks();
 
@@ -82,16 +66,6 @@ void Game::PlaceFood() {
     }
   }
 }
-
-
-// TODO: fix
-
-// void PlaceWall(std::size_t grid_width, std::size_t grid_height) {
-//   map.x = grid_width / 2;
-//   map.y = grid_height / 2;
-//   // map.w = 1;
-//   // map.h = 10
-// }
 
 void Game::Update() {
   if (!snake.alive) return;
