@@ -7,6 +7,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+#include "enemy.h"
 #include "map.h"
 
 class Game {
@@ -16,9 +17,11 @@ class Game {
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+  void Debug();
 
  private:
   Snake snake;
+  Enemy enemy;
   SDL_Point food;
   std::vector<GridObstacle> _map;
   // Map map;
