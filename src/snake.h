@@ -6,7 +6,7 @@
 #include "character.h"
 #include "SDL.h"
 
-class Snake  : public Character{
+class Snake : public Character {
  public:
   Snake(int grid_width, int grid_height, std::vector<GridObstacle> map)
       : Character(grid_width, grid_height),

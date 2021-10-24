@@ -6,6 +6,7 @@
 
 #include "SDL.h"
 #include "snake.h"
+#include "enemy.h"
 #include "map.h"
 
 class Renderer {
@@ -14,7 +15,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(Snake const snake, SDL_Point const &food, std::vector<GridObstacle> map);
+  void Render(Snake const snake, Enemy const Enemy, SDL_Point const &food, std::vector<GridObstacle> map);
   void RenderMap(std::vector<GridObstacle> map);
   Obstacle GetCoordinates(GridObstacle grid_obstacle);
   void UpdateWindowTitle(int score, int fps);

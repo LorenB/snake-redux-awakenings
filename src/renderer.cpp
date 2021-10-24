@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<GridObstacle> map) {
+void Renderer::Render(Snake const snake, Enemy const enemy, SDL_Point const &food, std::vector<GridObstacle> map) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -72,6 +72,12 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Grid
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render enemy
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xA5, 0x00, 0xFF);
+  block.x = static_cast<int>(enemy.head_x) * block.w;
+  block.y = static_cast<int>(enemy.head_y) * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Update Screen

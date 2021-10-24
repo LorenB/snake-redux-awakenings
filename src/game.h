@@ -35,7 +35,6 @@ class Game {
   int score{0};
 
   void PlaceFood();
-  // void PlaceWall(std::size_t grid_width, std::size_t grid_height);
   void Update();
 };
 
