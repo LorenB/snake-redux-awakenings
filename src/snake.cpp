@@ -52,8 +52,8 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
 }
 
 void Snake::SetInitialPosition(int grid_width, int grid_height) {
-  head_x = grid_width / 3;
-  head_y = grid_height / 2;
+  head_x = grid_width / 2;
+  head_y = 0;
 }
 
 void Snake::GrowBody() { growing = true; }

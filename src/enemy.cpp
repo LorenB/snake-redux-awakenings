@@ -15,8 +15,8 @@ void Enemy::Update() {
 }
 
 void Enemy::SetInitialPosition(int grid_width, int grid_height) {
-  head_x = grid_width / 2;
-  head_y = 0;
+  head_x = 0;
+  head_y = grid_height / 2;
 }
 
 

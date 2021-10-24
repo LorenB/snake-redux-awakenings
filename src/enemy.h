@@ -13,7 +13,7 @@ class Enemy : public Character {
         : Character(grid_width, grid_height) {
           std::cout << "Enemy ctor..." << std::endl;
           SetInitialPosition(grid_width, grid_height);
-          direction = Direction::kDown;
+          direction = Direction::kRight;
         }
     
     void Debug();
