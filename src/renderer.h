@@ -7,7 +7,6 @@
 #include "SDL.h"
 #include "snake.h"
 #include "enemy.h"
-#include "map.h"
 
 class Renderer {
  public:

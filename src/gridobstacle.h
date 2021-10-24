@@ -1,3 +1,5 @@
+#ifndef GRIDOBSTACLE_H_
+#define GRIDOBSTACLE_H_
 #include <iostream>
 
 struct GridObstacle {
@@ -6,3 +8,5 @@ struct GridObstacle {
   int cell_width;
   int cell_hieght;
 };
+
+#endif

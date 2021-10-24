@@ -8,7 +8,6 @@
 #include "renderer.h"
 #include "snake.h"
 #include "enemy.h"
-#include "map.h"
 
 class Game {
  public:

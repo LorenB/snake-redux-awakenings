@@ -2,7 +2,7 @@
 #define SNAKE_H
 
 #include <vector>
-#include<gridobstacle.h>
+#include"gridobstacle.h"
 #include "character.h"
 #include "SDL.h"
 

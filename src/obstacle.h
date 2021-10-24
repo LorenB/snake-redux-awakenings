@@ -1,3 +1,6 @@
+#ifndef OBSTACLE_H_
+#define OBSTACLE_H_
+
 #include <iostream>
 
 struct Obstacle {
@@ -6,3 +9,5 @@ struct Obstacle {
     int w;
     int h;
 };
+
+#endif

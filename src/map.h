@@ -1,15 +1,11 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "SDL.h"
+#include <vector>
 
-// TODO: class or struct?
+#include "gridobstacle.h"
 
-class Map {
-  public:
-    int x;
-    int y;
-    int w;
-    int h;
+namespace Map {
+  std::vector<GridObstacle> Level1();
 };
 #endif
