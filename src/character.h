@@ -10,8 +10,13 @@ class Character {
  public:
   enum class Direction { kUp, kDown, kLeft, kRight };
 
-  Character() {
-    std::cout << "Character ctor" << std::endl;
+  Character(int grid_width, int grid_height)
+    : head_x(grid_width / 2),
+      head_y(grid_height / 2),
+      grid_width(grid_width),
+      grid_height(grid_height)
+  {
+    std::cout << "Character ctor..." << std::endl;
   }
 
   void Debug();
@@ -21,11 +26,11 @@ class Character {
   float speed{0.1f};
   float head_x;
   float head_y;
-
- private:
   int grid_width;
   int grid_height;
-  // std::vector<GridObstacle> _map;
+
+//  private:
+//   std::vector<GridObstacle> _map;
 };
 
 #endif

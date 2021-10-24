@@ -8,14 +8,11 @@
 
 class Snake  : public Character{
  public:
-  // enum class Direction { kUp, kDown, kLeft, kRight };
-
   Snake(int grid_width, int grid_height, std::vector<GridObstacle> map)
-      : grid_width(grid_width),
-        grid_height(grid_height),
-        head_x(grid_width / 2),
-        head_y(grid_height / 2),
-        _map(map) {}
+      : Character(grid_width, grid_height),
+        _map(map) {
+            std::cout << "Snake ctor..." << std::endl;
+        }
 
   void Update();
 
@@ -23,8 +20,6 @@ class Snake  : public Character{
   bool SnakeCell(int x, int y);
   int size{1};
   bool alive{true};
-  float head_x;
-  float head_y;
   std::vector<SDL_Point> body;
 
  private:
@@ -32,8 +27,6 @@ class Snake  : public Character{
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
   bool growing{false};
-  int grid_width;
-  int grid_height;
   std::vector<GridObstacle> _map;
 };
 
