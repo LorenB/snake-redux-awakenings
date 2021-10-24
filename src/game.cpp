@@ -86,9 +86,13 @@ void Game::Update() {
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
+  int enemy_new_x = static_cast<int>(enemy.head_x);
+  int enemy_new_y = static_cast<int>(enemy.head_y);
+
   // Check if snake collided with enemy
-  if(enemy.head_x == new_x && enemy.head_y == new_y) {
+  if(enemy_new_x== new_x && enemy_new_y == new_y) {
     snake.alive = false;
+    std::cout << "**** COLLISION ***" << std::endl;
   }
 
   // Check if there's food over here
