@@ -3,11 +3,12 @@
 
 #include <vector>
 #include<gridobstacle.h>
+#include "character.h"
 #include "SDL.h"
 
-class Snake {
+class Snake  : public Character{
  public:
-  enum class Direction { kUp, kDown, kLeft, kRight };
+  // enum class Direction { kUp, kDown, kLeft, kRight };
 
   Snake(int grid_width, int grid_height, std::vector<GridObstacle> map)
       : grid_width(grid_width),
@@ -20,10 +21,6 @@ class Snake {
 
   void GrowBody();
   bool SnakeCell(int x, int y);
-
-  Direction direction = Direction::kUp;
-
-  float speed{0.1f};
   int size{1};
   bool alive{true};
   float head_x;
