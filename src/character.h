@@ -22,7 +22,7 @@ class Character {
   void Debug();
   void UpdateHead();
 
-  Direction direction = Direction::kUp;
+  Direction direction;
   float speed{0.1f};
   float head_x;
   float head_y;

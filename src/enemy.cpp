@@ -12,11 +12,11 @@ void Enemy::Update() {
       static_cast<int>(head_y)
   };  // We first capture the head's cell before updating.
   UpdateHead();
-  // SDL_Point current_cell{
-  //     static_cast<int>(head_x),
-  //     static_cast<int>(head_y)
-  // };  // Capture the head's cell after updating.
+}
 
+void Enemy::SetInitialPosition(int grid_width, int grid_height) {
+  head_x = grid_width / 2;
+  head_y = 0;
 }
 
 

@@ -79,12 +79,17 @@ void Game::PlaceFood() {
 
 void Game::Update() {
   if (!snake.alive) return;
-
+  
   snake.Update();
   enemy.Update();
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
+
+  // Check if snake collided with enemy
+  if(enemy.head_x == new_x && enemy.head_y == new_y) {
+    snake.alive = false;
+  }
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {

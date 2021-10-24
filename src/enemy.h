@@ -12,10 +12,14 @@ class Enemy : public Character {
     Enemy(int grid_width, int grid_height)
         : Character(grid_width, grid_height) {
           std::cout << "Enemy ctor..." << std::endl;
+          SetInitialPosition(grid_width, grid_height);
+          direction = Direction::kDown;
         }
     
     void Debug();
     void Update();
+    void SetInitialPosition(int grid_width, int grid_height);
+
   private:
     int grid_width;
     int grid_height;

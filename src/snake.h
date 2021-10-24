@@ -12,11 +12,14 @@ class Snake : public Character {
       : Character(grid_width, grid_height),
         _map(map) {
             std::cout << "Snake ctor..." << std::endl;
+            SetInitialPosition(grid_width, grid_height);
+            direction = Direction::kUp;
         }
 
   void Update();
 
   void GrowBody();
+  void SetInitialPosition(int grid_width, int grid_height);
   bool SnakeCell(int x, int y);
   int size{1};
   bool alive{true};
