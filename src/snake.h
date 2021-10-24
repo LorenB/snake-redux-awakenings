@@ -23,7 +23,6 @@ class Snake  : public Character{
   std::vector<SDL_Point> body;
 
  private:
-  void UpdateHead();
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
   bool growing{false};

@@ -20,7 +20,7 @@ class Character {
   }
 
   void Debug();
-  // void UpdateHead();
+  void UpdateHead();
 
   Direction direction = Direction::kUp;
   float speed{0.1f};
