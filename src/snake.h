@@ -2,9 +2,12 @@
 #define SNAKE_H
 
 #include <vector>
-#include"gridobstacle.h"
-#include "character.h"
 #include "SDL.h"
+
+#include "character.h"
+#include "map.h"
+#include "gridobstacle.h"
+
 
 class Snake : public Character {
  public:

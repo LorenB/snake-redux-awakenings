@@ -68,26 +68,12 @@ void Game::PlaceFood() {
 
     // Check that the location is not occupied by a snake item before placing
     // food.
-    if (!snake.SnakeCell(x, y) && !IsObstacle(x, y)) {
+    if (!snake.SnakeCell(x, y) && !Map::IsObstacle(x, y, _map)) {
       food.x = x;
       food.y = y;
       return;
     }
   }
-}
-
-bool Game::IsObstacle(int x, int y) {
-  // check if the coordinates correspond to a obstacle
-  for (auto const &obstacle : _map) {
-    for(int i=0; i <=  obstacle.cell_width; i++) {
-      for(int j=0; j <= obstacle.cell_hieght; j++) {
-        if (x == obstacle.cell_x + i && y == obstacle.cell_y + j) {
-          return true;
-        }
-      }
-    }
-  }
-  return false;
 }
 
 void Game::Update() {

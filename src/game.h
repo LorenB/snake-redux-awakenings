@@ -5,6 +5,7 @@
 #include <vector>
 #include "SDL.h"
 #include "controller.h"
+#include "map.h"
 #include "renderer.h"
 #include "snake.h"
 #include "enemy.h"
@@ -34,7 +35,7 @@ class Game {
   int score{0};
 
   void PlaceFood();
-  bool IsObstacle(int x, int y);
+  // bool IsObstacle(int x, int y);
   void Update();
 };
 

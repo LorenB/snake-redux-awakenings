@@ -1,5 +1,6 @@
 #include "map.h"
 
+
 std::vector<GridObstacle> Map::Level1() {
     std::vector<GridObstacle> ret;
     GridObstacle obstacle1;
@@ -61,3 +62,18 @@ std::vector<GridObstacle> Map::Level1() {
 
     return ret;
 }
+
+bool Map::IsObstacle(int x, int y, std::vector<GridObstacle> map) {
+  // check if the coordinates correspond to a obstacle
+  for (auto const &obstacle : map) {
+    for(int i=0; i <=  obstacle.cell_width; i++) {
+      for(int j=0; j <= obstacle.cell_hieght; j++) {
+        if (x == obstacle.cell_x + i && y == obstacle.cell_y + j) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+

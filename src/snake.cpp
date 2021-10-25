@@ -38,17 +38,9 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
       alive = false;
     }
   }
-
+  
   // check if snake has died by wall collision
-  for (auto const &obstacle : _map) {
-    for(int i=0; i <=  obstacle.cell_width; i++) {
-      for(int j=0; j <= obstacle.cell_hieght; j++) {
-        if (current_head_cell.x == obstacle.cell_x + i && current_head_cell.y == obstacle.cell_y + j) {
-          alive = false;
-        }
-      }
-    }
-  }
+  alive = !Map::IsObstacle(current_head_cell.x, current_head_cell.y, _map);
 }
 
 void Snake::SetInitialPosition(int grid_width, int grid_height) {
