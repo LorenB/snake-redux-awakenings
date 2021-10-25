@@ -86,7 +86,6 @@ void Renderer::Render(Snake const snake, Enemy const enemy, SDL_Point const &foo
 
 void Renderer::RenderMap(std::vector<GridObstacle> map) {
   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF);
-  // TODO: interate over game map
   SDL_Rect rect;
   for (auto obstacle : map) {
     rect.x = obstacle.cell_x * 20;

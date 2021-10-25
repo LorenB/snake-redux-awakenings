@@ -34,6 +34,7 @@ class Game {
   int score{0};
 
   void PlaceFood();
+  bool IsObstacle(int x, int y);
   void Update();
 };
 
