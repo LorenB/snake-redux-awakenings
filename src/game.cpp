@@ -88,6 +88,24 @@ void Game::Update() {
   int enemy_new_x = static_cast<int>(enemy.head_x);
   int enemy_new_y = static_cast<int>(enemy.head_y);
 
+  SDL_Point new_head;
+  new_head.x = static_cast<int>(snake.head_x);
+  new_head.y = static_cast<int>(snake.head_y);
+
+  GridObstacle new_enemy;
+  new_enemy.cell_x = static_cast<int>(enemy.head_x);
+  new_enemy.cell_y = static_cast<int>(enemy.head_y);
+  new_enemy.cell_width = 1;
+  new_enemy.cell_hieght = 1;
+  std::vector<GridObstacle> new_enemies;
+  new_enemies.emplace_back(new_enemy);
+
+  std::vector<SDL_Point> whole_snake = snake.body;
+  whole_snake.emplace_back(new_head);
+  // std::cout << "checking if snake collided with enemy" << std::endl;
+  snake.alive = !Map::IsCollision(whole_snake, new_enemies);
+
+
   // Check if snake collided with enemy
   if(enemy_new_x== new_x && enemy_new_y == new_y) {
     snake.alive = false;

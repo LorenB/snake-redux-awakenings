@@ -3,12 +3,14 @@
 
 #include <vector>
 #include <iostream>
+#include "SDL.h"
 
 #include "gridobstacle.h"
 
 namespace Map {
   std::vector<GridObstacle> Level1();
   bool IsObstacle(int x, int y, std::vector<GridObstacle> map);
+  bool IsCollision(std::vector<SDL_Point> cells, std::vector<GridObstacle> map);
 };
 
 #endif

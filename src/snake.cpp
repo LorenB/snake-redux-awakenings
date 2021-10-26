@@ -38,9 +38,11 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
       alive = false;
     }
   }
+  std::vector<SDL_Point> whole_snake = body;
+  whole_snake.emplace_back(current_head_cell);
   
   // check if snake has died by wall collision
-  alive = !Map::IsObstacle(current_head_cell.x, current_head_cell.y, _map);
+  alive = !Map::IsCollision(whole_snake, _map);
 }
 
 void Snake::SetInitialPosition(int grid_width, int grid_height) {
