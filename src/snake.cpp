@@ -48,12 +48,26 @@ void Snake::SetInitialPosition(int grid_width, int grid_height) {
 void Snake::GrowBody() { growing = true; }
 
 // Inefficient method to check if cell is occupied by snake.
+// TODO: delete method
 bool Snake::SnakeCell(int x, int y) {
   if (x == static_cast<int>(head_x) && y == static_cast<int>(head_y)) {
     return true;
   }
   for (auto const &item : body) {
     if (x == item.x && y == item.y) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Inefficient method to check if cell is occupied by snake.
+bool Snake::SnakeCell(SDL_Point cell) {
+  if (cell.x == static_cast<int>(head_x) && cell.y == static_cast<int>(head_y)) {
+    return true;
+  }
+  for (auto const &item : body) {
+    if (cell.x == item.x && cell.y == item.y) {
       return true;
     }
   }

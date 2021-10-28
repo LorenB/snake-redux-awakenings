@@ -24,6 +24,7 @@ class Snake : public Character {
   void GrowBody();
   void SetInitialPosition(int grid_width, int grid_height);
   bool SnakeCell(int x, int y);
+  bool SnakeCell(SDL_Point cell);
   int size{1};
   bool alive{true};
   std::vector<SDL_Point> body;
