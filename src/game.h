@@ -24,8 +24,7 @@ class Game {
   Enemy enemy;
   SDL_Point food;
   std::vector<GridObstacle> _map;
-  // Map map;
-  // SDL_Point map;
+  std::vector<SDL_Point> _map_points;
 
   std::random_device dev;
   std::mt19937 engine;
@@ -35,7 +34,6 @@ class Game {
   int score{0};
 
   void PlaceFood();
-  // bool IsObstacle(int x, int y);
   void Update();
 };
 

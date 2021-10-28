@@ -10,6 +10,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, std::vector<GridObst
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)),
       _map(map) {
+  _map_points = Map::GetPoints(map);
   PlaceFood();
   Debug();
 }
@@ -97,14 +98,11 @@ void Game::Update() {
   whole_snake.emplace_back(new_head);
   snake.alive = !Map::IsCollision(whole_snake, new_enemies);
 
-  std::vector<SDL_Point> map_points = Map::GetPoints(_map);
   if(snake.alive) {
-    snake.alive = !Map::IsCollision(whole_snake, map_points);
+    snake.alive = !Map::IsCollision(whole_snake, _map_points);
   }
 
-
   // Check if there's food over here
-  // if (food.x == new_x && food.y == new_y) {
   if (food.x == new_head.x && food.y == new_head.y) {
     score++;
     PlaceFood();
