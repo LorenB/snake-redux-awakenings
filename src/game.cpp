@@ -62,15 +62,17 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 }
 
 void Game::PlaceFood() {
-  // int x, y;
   SDL_Point food_point_guess;
+  
+
   while (true) {
+    std::vector<SDL_Point> food_point_guesses;
     food_point_guess.x = random_w(engine);
     food_point_guess.y = random_h(engine);
-
+    food_point_guesses.emplace_back(food_point_guess);
     // Check that the location is not occupied by a snake item before placing
     // food.
-    if (!snake.SnakeCell(food_point_guess) && !Map::IsObstacle(food_point_guess.x, food_point_guess.y, _map)) {
+    if (!snake.SnakeCell(food_point_guess) && !Map::IsCollision(food_point_guesses, _map_points)) {
       food.x = food_point_guess.x;
       food.y = food_point_guess.y;
       return;

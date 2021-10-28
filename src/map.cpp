@@ -78,21 +78,6 @@ std::vector<SDL_Point> Map::GetPoints(std::vector<GridObstacle> map) {
   return result;
 }
 
-// TODO: replace with IsCollision
-bool Map::IsObstacle(int x, int y, std::vector<GridObstacle> map) {
-  // check if the coordinates correspond to a obstacle
-  for (auto const &obstacle : map) {
-    for(int i=0; i <=  obstacle.cell_width; i++) {
-      for(int j=0; j <= obstacle.cell_hieght; j++) {
-        if (x == obstacle.cell_x + i && y == obstacle.cell_y + j) {
-          return true;
-        }
-      }
-    }
-  }
-  return false;
-}
-
 // TODO: improve perfromance
 bool Map::IsCollision(std::vector<SDL_Point> points, std::vector<GridObstacle> map) {
   for (SDL_Point const &point : points) {
