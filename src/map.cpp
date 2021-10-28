@@ -68,10 +68,6 @@ std::vector<SDL_Point> Map::GetPoints(std::vector<GridObstacle> map) {
   for (auto const &obstacle : map) {
     for(int i=0; i <  obstacle.cell_width; i++) {
       for(int j=0; j < obstacle.cell_hieght; j++) {
-        // if (x == obstacle.cell_x + i && y == obstacle.cell_y + j) {
-        //   return true;
-        // }
-        // std::cout << "i, j: " << i << ", " << j << std::endl;
         SDL_Point point;
         point.x = obstacle.cell_x + i;
         point.y = obstacle.cell_y + j;
