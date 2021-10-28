@@ -63,6 +63,25 @@ std::vector<GridObstacle> Map::Level1() {
     return ret;
 }
 
+std::vector<SDL_Point> Map::GetPoints(std::vector<GridObstacle> map) {
+  std::vector<SDL_Point> result;
+  for (auto const &obstacle : map) {
+    for(int i=0; i <  obstacle.cell_width; i++) {
+      for(int j=0; j < obstacle.cell_hieght; j++) {
+        // if (x == obstacle.cell_x + i && y == obstacle.cell_y + j) {
+        //   return true;
+        // }
+        // std::cout << "i, j: " << i << ", " << j << std::endl;
+        SDL_Point point;
+        point.x = obstacle.cell_x + i;
+        point.y = obstacle.cell_y + j;
+        result.emplace_back(point);
+      }
+    }
+  }
+  return result;
+}
+
 // TODO: replace with IsCollision
 bool Map::IsObstacle(int x, int y, std::vector<GridObstacle> map) {
   // check if the coordinates correspond to a obstacle
@@ -94,5 +113,15 @@ bool Map::IsCollision(std::vector<SDL_Point> points, std::vector<GridObstacle> m
   return false;
 }
 
-
+// TODO: improve perfromance
+bool Map::IsCollision(std::vector<SDL_Point> points1, std::vector<SDL_Point> points2) {
+  for (SDL_Point const &point1 : points1) {
+    for (auto const &point2 : points2) {
+      if (point1.x == point2.x && point1.y == point2.y) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 
