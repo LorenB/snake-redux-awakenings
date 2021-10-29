@@ -13,11 +13,11 @@ int main() {
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
 
-  Map map(Map::Level1());
+  // Map map(Map::Level1());
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
-  Game game(kGridWidth, kGridHeight, map);
+  Game game(kGridWidth, kGridHeight);
   game.Run(controller, renderer, kMsPerFrame);
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
