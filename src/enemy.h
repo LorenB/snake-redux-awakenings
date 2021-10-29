@@ -22,7 +22,6 @@ class Enemy : public Character {
   private:
     int grid_width;
     int grid_height;
-    // std::vector<GridObstacle> _map;
 };
 
 #endif
