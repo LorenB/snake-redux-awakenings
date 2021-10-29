@@ -10,7 +10,6 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, Map map)
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)),
       _map(map) {
-  _map_points = Map::GetPoints(_map.obstacles);
   PlaceFood();
   Debug();
 }
@@ -72,7 +71,7 @@ void Game::PlaceFood() {
     food_point_guesses.emplace_back(food_point_guess);
     // Check that the location is not occupied by a snake item before placing
     // food.
-    if (!snake.SnakeCell(food_point_guess) && !Map::IsCollision(food_point_guesses, _map_points)) {
+    if (!snake.SnakeCell(food_point_guess) && !Map::IsCollision(food_point_guesses, _map.points)) {
       food.x = food_point_guess.x;
       food.y = food_point_guess.y;
       return;
@@ -102,7 +101,7 @@ void Game::Update() {
   snake.alive = !Map::IsCollision(whole_snake, new_enemies);
 
   if(snake.alive) {
-    snake.alive = !Map::IsCollision(whole_snake, _map_points);
+    snake.alive = !Map::IsCollision(whole_snake, _map.points);
   }
 
   // Check if there's food over here
