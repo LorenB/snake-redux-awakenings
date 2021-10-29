@@ -11,14 +11,12 @@
 
 class Snake : public Character {
  public:
-  Snake(int grid_width, int grid_height, std::vector<GridObstacle> map)
-      : Character(grid_width, grid_height),
-        _map(map) {
+  Snake(int grid_width, int grid_height)
+      : Character(grid_width, grid_height) {
             std::cout << "Snake ctor..." << std::endl;
             SetInitialPosition(grid_width, grid_height);
             direction = Direction::kUp;
         }
-
   void Update();
 
   void GrowBody();
@@ -33,7 +31,6 @@ class Snake : public Character {
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
   bool growing{false};
-  std::vector<GridObstacle> _map;
 };
 
 #endif

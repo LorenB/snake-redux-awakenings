@@ -12,7 +12,7 @@
 
 class Game {
  public:
-  Game(std::size_t grid_width, std::size_t grid_height, std::vector<GridObstacle> map);
+  Game(std::size_t grid_width, std::size_t grid_height, Map map);
   void Run(Controller const &controller, Renderer &renderer,
            std::size_t target_frame_duration);
   int GetScore() const;
@@ -23,7 +23,7 @@ class Game {
   Snake snake;
   Enemy enemy;
   SDL_Point food;
-  std::vector<GridObstacle> _map;
+  Map _map;
   std::vector<SDL_Point> _map_points;
 
   std::random_device dev;

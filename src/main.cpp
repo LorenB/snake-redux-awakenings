@@ -13,7 +13,7 @@ int main() {
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
 
-  std::vector<GridObstacle> map = Map::Level1();
+  Map map(Map::Level1());
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;

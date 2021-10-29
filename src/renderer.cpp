@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, Enemy const enemy, SDL_Point const &food, std::vector<GridObstacle> map) {
+void Renderer::Render(Snake const snake, Enemy const enemy, SDL_Point const &food, Map map) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -84,14 +84,14 @@ void Renderer::Render(Snake const snake, Enemy const enemy, SDL_Point const &foo
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::RenderMap(std::vector<GridObstacle> map) {
+void Renderer::RenderMap(Map map) {
   // SDL_SetRenderDrawColor(sdl_renderer, 0x6F, 0x4E, 0x37, 0xFF); // coffee
   SDL_SetRenderDrawColor(sdl_renderer, 0x7B, 0x3F, 0x00, 0xFF); // chocolate
   SDL_Rect rect;
   int block_w = screen_width / grid_width;
   int block_h = screen_height / grid_height;
 
-  for (auto obstacle : map) {
+  for (auto obstacle : map.obstacles) {
     rect.x = obstacle.cell_x * block_w;
     rect.y = obstacle.cell_y * block_h;
     rect.w = obstacle.cell_width * block_w;

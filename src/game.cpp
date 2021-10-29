@@ -3,14 +3,14 @@
 
 #include "game.h"
 
-Game::Game(std::size_t grid_width, std::size_t grid_height, std::vector<GridObstacle> map)
-    : snake(grid_width, grid_height, map),
+Game::Game(std::size_t grid_width, std::size_t grid_height, Map map)
+    : snake(grid_width, grid_height),
       enemy(grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)),
       _map(map) {
-  _map_points = Map::GetPoints(map);
+  _map_points = Map::GetPoints(_map.obstacles);
   PlaceFood();
   Debug();
 }

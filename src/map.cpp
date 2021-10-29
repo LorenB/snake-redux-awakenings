@@ -1,6 +1,5 @@
 #include "map.h"
 
-
 std::vector<GridObstacle> Map::Level1() {
     std::vector<GridObstacle> ret;
     GridObstacle obstacle1;
@@ -63,6 +62,13 @@ std::vector<GridObstacle> Map::Level1() {
     return ret;
 }
 
+Map::Map(std::vector<GridObstacle> obstacle_list) {
+  obstacles = obstacle_list;
+  points = GetPoints(obstacles);
+}
+
+
+
 std::vector<SDL_Point> Map::GetPoints(std::vector<GridObstacle> map) {
   std::vector<SDL_Point> result;
   for (auto const &obstacle : map) {
@@ -76,22 +82,6 @@ std::vector<SDL_Point> Map::GetPoints(std::vector<GridObstacle> map) {
     }
   }
   return result;
-}
-
-// TODO: improve perfromance
-bool Map::IsCollision(std::vector<SDL_Point> points, std::vector<GridObstacle> map) {
-  for (SDL_Point const &point : points) {
-    for (auto const &obstacle : map) {
-      for(int i=0; i <=  obstacle.cell_width; i++) {
-        for(int j=0; j <= obstacle.cell_hieght; j++) {
-          if (point.x == obstacle.cell_x + i && point.y == obstacle.cell_y + j) {
-            return true;
-          }
-        }
-      }
-    }
-  }
-  return false;
 }
 
 // TODO: improve perfromance
