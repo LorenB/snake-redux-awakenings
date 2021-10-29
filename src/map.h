@@ -7,11 +7,13 @@
 
 #include "gridobstacle.h"
 
-namespace Map {
-  std::vector<GridObstacle> Level1();
-  bool IsCollision(std::vector<SDL_Point> cells, std::vector<GridObstacle> map);
-  bool IsCollision(std::vector<SDL_Point> points1, std::vector<SDL_Point> points2);
-  std::vector<SDL_Point> GetPoints(std::vector<GridObstacle> map);
+
+class Map {
+  public:
+    static std::vector<GridObstacle> Level1();
+    static bool IsCollision(std::vector<SDL_Point> cells, std::vector<GridObstacle> map);
+    static bool IsCollision(std::vector<SDL_Point> points1, std::vector<SDL_Point> points2);
+    static std::vector<SDL_Point> GetPoints(std::vector<GridObstacle> map);
 };
 
 
