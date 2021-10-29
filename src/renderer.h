@@ -15,7 +15,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(Snake const snake, Enemy const Enemy, SDL_Point const &food, Map map);
+  void Render(Snake const snake, Enemy const Enemy, SDL_Point const &food, Map const &map);
   void RenderMap(Map map);
   Obstacle GetCoordinates(GridObstacle grid_obstacle);
   void UpdateWindowTitle(int score, int fps);
