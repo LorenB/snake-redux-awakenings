@@ -1,12 +1,25 @@
-# CPPND: Capstone Snake Game Example
-
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
+# Snake Redux - Awakenings
+This project is remake of the classic snake game.
 
 <img src="snake_game.gif"/>
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+## Rubric Points
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+### Compiling and Testing
+Using the instructions in "Basic Build Instructions" you can confirm the game builds and runs correctly.
+
+### Loops, Functions, I/O
+Game::IsCollision is an execellent example of I've implemented loops to process data in this project.
+
+### Object Oriented Programming
+For this project implemented new Map and Enemy objects to allow me to add wall and enemies to the game. I also created the the Character class, which is the super class for both Enemy (new class) and Snake (existing class).
+
+### Memory Management
+The project uses object references where appropriate.
+
+
+### Concurrency
+The project does not currently make use of concurrency.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
