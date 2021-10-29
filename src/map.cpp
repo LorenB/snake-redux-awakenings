@@ -67,8 +67,6 @@ Map::Map(std::vector<GridObstacle> obstacle_list) {
   points = GetPoints(obstacles);
 }
 
-
-
 std::vector<SDL_Point> Map::GetPoints(std::vector<GridObstacle> map) {
   std::vector<SDL_Point> result;
   for (auto const &obstacle : map) {
@@ -83,16 +81,3 @@ std::vector<SDL_Point> Map::GetPoints(std::vector<GridObstacle> map) {
   }
   return result;
 }
-
-// TODO: improve perfromance
-bool Map::IsCollision(std::vector<SDL_Point> points1, std::vector<SDL_Point> points2) {
-  for (SDL_Point const &point1 : points1) {
-    for (auto const &point2 : points2) {
-      if (point1.x == point2.x && point1.y == point2.y) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-

@@ -33,6 +33,7 @@ class Game {
   int score{0};
 
   void PlaceFood();
+  bool IsCollision(std::vector<SDL_Point> points1, std::vector<SDL_Point> points2);
   void Update();
 };
 

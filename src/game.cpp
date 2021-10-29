@@ -72,12 +72,24 @@ void Game::PlaceFood() {
     food_point_guesses.emplace_back(food_point_guess);
     // Check that the location is not occupied by a snake item before placing
     // food.
-    if (!snake.SnakeCell(food_point_guess) && !Map::IsCollision(food_point_guesses, _map.points)) {
+    if (!snake.SnakeCell(food_point_guess) && !Game::IsCollision(food_point_guesses, _map.points)) {
       food.x = food_point_guess.x;
       food.y = food_point_guess.y;
       return;
     }
   }
+}
+
+// TODO: improve perfromance
+bool Game::IsCollision(std::vector<SDL_Point> points1, std::vector<SDL_Point> points2) {
+  for (SDL_Point const &point1 : points1) {
+    for (auto const &point2 : points2) {
+      if (point1.x == point2.x && point1.y == point2.y) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 void Game::Update() {
@@ -99,10 +111,10 @@ void Game::Update() {
 
   std::vector<SDL_Point> whole_snake = snake.body;
   whole_snake.emplace_back(new_head);
-  snake.alive = !Map::IsCollision(whole_snake, new_enemies);
+  snake.alive = !Game::IsCollision(whole_snake, new_enemies);
 
   if(snake.alive) {
-    snake.alive = !Map::IsCollision(whole_snake, _map.points);
+    snake.alive = !Game::IsCollision(whole_snake, _map.points);
   }
 
   // Check if there's food over here
