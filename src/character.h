@@ -14,10 +14,7 @@ class Character {
     : head_x(grid_width / 2),
       head_y(grid_height / 2),
       grid_width(grid_width),
-      grid_height(grid_height)
-  {
-    std::cout << "Character ctor..." << std::endl;
-  }
+      grid_height(grid_height){}
 
   void Debug();
   void UpdateHead();
@@ -28,9 +25,6 @@ class Character {
   float head_y;
   int grid_width;
   int grid_height;
-
-//  private:
-//   std::vector<GridObstacle> _map;
 };
 
 #endif

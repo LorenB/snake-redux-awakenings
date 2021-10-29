@@ -13,7 +13,6 @@ class Snake : public Character {
  public:
   Snake(int grid_width, int grid_height)
       : Character(grid_width, grid_height) {
-            std::cout << "Snake ctor..." << std::endl;
             SetInitialPosition(grid_width, grid_height);
             direction = Direction::kUp;
         }

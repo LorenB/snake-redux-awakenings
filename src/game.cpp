@@ -16,9 +16,9 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
 }
 
 void Game::Debug() {
-  std::cout << "debugging game..." << std::endl;
+  // std::cout << "debugging game..." << std::endl;
   // snake.Debug();
-  enemy.Debug();
+  // enemy.Debug();
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,

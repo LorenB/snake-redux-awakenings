@@ -11,7 +11,6 @@ class Enemy : public Character {
   public:    
     Enemy(int grid_width, int grid_height)
         : Character(grid_width, grid_height) {
-          std::cout << "Enemy ctor..." << std::endl;
           SetInitialPosition(grid_width, grid_height);
           direction = Direction::kRight;
         }
