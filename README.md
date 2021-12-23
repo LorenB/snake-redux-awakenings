@@ -1,26 +1,6 @@
 # Snake Redux - Awakenings
 This project is remake of the classic snake game.
 
-<img src="snake_game.gif"/>
-
-## Rubric Points
-
-### Compiling and Testing
-Using the instructions in "Basic Build Instructions" you can confirm the game builds and runs correctly.
-
-### Loops, Functions, I/O
-Game::IsCollision is an execellent example of I've implemented loops to process data in this project.
-
-### Object Oriented Programming
-For this project implemented new Map and Enemy objects to allow me to add wall and enemies to the game. I also created the the Character class, which is the super class for both Enemy (new class) and Snake (existing class).
-
-### Memory Management
-The project uses object references where appropriate.
-
-
-### Concurrency
-The project does not currently make use of concurrency.
-
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
